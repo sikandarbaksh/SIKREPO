@@ -1,0 +1,19 @@
+---
+ - name: install java and apache
+   hosts: inventory
+   tasks:
+    - name: install java
+      yum:
+        name:java
+        state:latest
+    - name: download apache from site
+      url_get:
+         url:/site/demo
+         dest:/user/local
+    - name: extract files
+      unarchive:
+        src:/user/local
+        dest:/tmp
+        remote_src=yes
+    - name: start apache
+      shell: nohup /tmp/test/bin/startup.sh

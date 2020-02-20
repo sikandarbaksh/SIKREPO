@@ -1,0 +1,10 @@
+---
+ - name: restarting the services
+   hosts: testservers
+   tasks:
+     - service name=postgresql state=started
+       when: ansible_host == "node4"        
+     - service: name=sshd state=restarted
+       when : ansible_host == "node2"
+
+...

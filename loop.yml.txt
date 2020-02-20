@@ -1,0 +1,11 @@
+---
+ - name: with iteration
+   hosts: testservers
+   tasks:
+    - name: make direcoty file and assign permission
+      command: mkdir /opt/"{{item}}"
+      with_items:
+        dir1    
+        dir2    
+        dir3
+...

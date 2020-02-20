@@ -1,0 +1,14 @@
+---
+ - name: without iteration
+   hosts: testservers
+   tasks:
+    - name: make direcoty 
+      command:
+        mkdir /opt/test
+    - name: assign permissions
+      command:
+        chmod 755 /opt/test
+    - name: create files
+      command:
+        touch /opt/test/file
+...
